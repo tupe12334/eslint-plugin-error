@@ -149,69 +149,6 @@ throw errorInstance;
 }
 ```
 
-## Architecture
-
-This plugin follows Domain-Driven Design (DDD) principles with a clean, modular architecture:
-
-```
-src/
-├── index.js                    # Main plugin entry point with JSDoc
-└── rules/                     # Domain-organized rules
-    ├── no-generic-error/      # No generic error domain
-    │   ├── index.js          # Rule implementation with comprehensive JSDoc
-    │   ├── index.spec.js     # Collocated test specifications
-    │   └── README.md         # Rule-specific documentation
-    ├── require-custom-error/  # Custom error requirement domain
-    │   ├── index.js          # Rule implementation with JSDoc
-    │   ├── index.spec.js     # Collocated test specifications
-    │   └── README.md         # Rule-specific documentation
-    └── no-throw-literal/      # No literal throwing domain
-        ├── index.js          # Rule implementation with JSDoc
-        ├── index.spec.js     # Collocated test specifications
-        └── README.md         # Rule-specific documentation
-```
-
-### Design Principles
-
-- **Domain-Driven Organization**: Each rule is its own domain with all related code collocated
-- **Comprehensive JSDoc**: Every function, parameter, and return value is documented
-- **Test Collocation**: Spec files live next to the code they test for better maintainability
-- **Documentation Proximity**: Rule documentation is kept with the rule implementation
-
-## Why Use This Plugin?
-
-- **Better error handling**: Enforces descriptive, typed error classes
-- **Improved debugging**: Custom errors provide better stack traces and context
-- **Type safety**: Works well with TypeScript for better error type checking
-- **Consistency**: Maintains consistent error handling patterns across your codebase
-- **Clean Architecture**: Well-organized, maintainable codebase following DDD principles
-- **Comprehensive Documentation**: Every aspect is documented with JSDoc comments
-
-## Development
-
-### Running Tests
-
-```bash
-pnpm test          # Run all tests
-pnpm test:coverage # Run tests with coverage report
-```
-
-### Linting
-
-```bash
-pnpm lint          # Check code style
-pnpm lint:fix      # Auto-fix linting issues
-```
-
-### Architecture Benefits
-
-The DDD structure provides several benefits:
-
-- **Maintainability**: Each rule is self-contained with its tests and documentation
-- **Discoverability**: Related code is easy to find and understand
-- **Testing**: Spec files are immediately visible next to the code they verify
-- **Documentation**: Rule-specific docs are always up-to-date and accessible
-- **Extensibility**: Adding new rules follows a clear, established pattern
 
 ## License
 
