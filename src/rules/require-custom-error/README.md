@@ -33,6 +33,23 @@ throw new ValidationError('Validation failed');
 class CustomError extends Error {}
 class ValidationError extends Error {}
 class NetworkError extends CustomError {}
+
+// Custom error with hardcoded message - no message needed at throw site
+class HardcodedError extends Error {
+  constructor() {
+    super('This error always has this message');
+  }
+}
+throw new HardcodedError(); // ✅ Allowed - rule doesn't check constructor arguments
+
+// Custom error with optional message and default
+class OptionalMessageError extends Error {
+  constructor(message = 'Default error message') {
+    super(message);
+  }
+}
+throw new OptionalMessageError(); // ✅ Allowed
+throw new OptionalMessageError('Custom message'); // ✅ Also allowed
 ```
 
 ## Options

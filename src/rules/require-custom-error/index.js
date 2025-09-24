@@ -14,6 +14,12 @@
  * throw new CustomError('Something went wrong');
  * class ValidationError extends Error {}
  * throw new ValidationError('Validation failed');
+ *
+ * // ✅ Good - Custom error with hardcoded message (no message needed at throw site)
+ * class HardcodedError extends Error {
+ *   constructor() { super('Hardcoded message'); }
+ * }
+ * throw new HardcodedError(); // This is allowed - rule doesn't check constructor arguments
  */
 
 /**

@@ -23,6 +23,22 @@ describe('require-custom-error', () => {
       'class CustomError extends Error {}',
       'class ValidationError extends Error {}',
       'class NetworkError extends CustomError {}',
+      // Test: Custom error with no message at throw site (hardcoded in constructor)
+      'throw new ValidationError()',
+      // Test: Custom error class with hardcoded message in constructor
+      `class HardcodedError extends Error {
+        constructor() {
+          super('Hardcoded message');
+        }
+      }
+      throw new HardcodedError();`,
+      // Test: Custom error that accepts optional message but has default
+      `class OptionalMessageError extends Error {
+        constructor(message = 'Default hardcoded message') {
+          super(message);
+        }
+      }
+      throw new OptionalMessageError();`,
       {
         code: 'throw new Error("message")',
         options: [{ allowedBaseErrors: [] }],
