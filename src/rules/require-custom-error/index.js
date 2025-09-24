@@ -30,9 +30,9 @@ const requireCustomError = createRule(
       },
     ],
     messages: {
-      requireCustomError: 'Use custom error classes instead of generic Error.',
-      requireErrorSuffix: 'Custom error class names should end with "Error".',
-      extendError: 'Custom error classes should extend Error or another error class.',
+      requireCustomError: 'Use custom error classes instead of generic Error. Ensure you have tests covering this error scenario.',
+      requireErrorSuffix: 'Custom error class names should end with "Error". Ensure you have tests covering this error scenario.',
+      extendError: 'Custom error classes should extend Error or another error class. Ensure you have tests covering this error scenario.',
     },
   },
   function create(context) {

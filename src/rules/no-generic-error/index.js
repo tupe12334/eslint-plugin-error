@@ -52,8 +52,8 @@ const noGenericError = createRule(
       },
     ],
     messages: {
-      noGenericError: 'Avoid throwing generic Error. Use a custom error class instead.',
-      noGenericErrorWithSuggestion: 'Avoid throwing generic Error. Consider using {{suggestion}} instead.',
+      noGenericError: 'Avoid throwing generic Error. Use a custom error class instead. Ensure you have tests covering this error scenario.',
+      noGenericErrorWithSuggestion: 'Avoid throwing generic Error. Consider using {{suggestion}} instead. Ensure you have tests covering this error scenario.',
     },
   },
   function create(context) {

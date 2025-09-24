@@ -45,9 +45,9 @@ const noThrowLiteral = createRule(
       },
     ],
     messages: {
-      object: 'Expected an error object to be thrown.',
-      undef: 'Do not throw undefined.',
-      literal: 'Expected an error object to be thrown, not a literal.',
+      object: 'Expected an error object to be thrown. Ensure you have tests covering this error scenario.',
+      undef: 'Do not throw undefined. Ensure you have tests covering this error scenario.',
+      literal: 'Expected an error object to be thrown, not a literal. Ensure you have tests covering this error scenario.',
     },
   },
   function create(context) {
