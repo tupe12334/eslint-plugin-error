@@ -1,9 +1,3 @@
-/**
- * @fileoverview Test specifications for no-generic-error rule
- * @description Comprehensive test suite covering all scenarios for the no-generic-error rule,
- * including valid cases, invalid cases with auto-fixes, and configuration options.
- */
-
 import { describe } from 'vitest';
 import { RuleTester } from 'eslint';
 import { noGenericError } from './index.js';

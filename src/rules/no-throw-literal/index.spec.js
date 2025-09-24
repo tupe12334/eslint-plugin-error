@@ -1,9 +1,3 @@
-/**
- * @fileoverview Test specifications for no-throw-literal rule
- * @description Comprehensive test suite covering all scenarios for the no-throw-literal rule,
- * including literal values, objects, identifiers, and configuration options.
- */
-
 import { describe } from 'vitest';
 import { RuleTester } from 'eslint';
 import { noThrowLiteral } from './index.js';

@@ -1,9 +1,3 @@
-/**
- * @fileoverview Test specifications for require-custom-error rule
- * @description Comprehensive test suite covering all scenarios for the require-custom-error rule,
- * including throw statements, class declarations, and various configuration options.
- */
-
 import { describe } from 'vitest';
 import { RuleTester } from 'eslint';
 import { requireCustomError } from './index.js';
