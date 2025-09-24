@@ -12,8 +12,10 @@
     "test:coverage": "vitest --coverage",
     "lint": "eslint src --ext .js",
     "lint:fix": "eslint src --ext .js --fix",
+    "validate": "pnpm test && pnpm lint",
     "release": "dotenv -e .env -- release-it",
-    "release:dry": "dotenv -e .env -- release-it --dry-run"
+    "release:dry": "dotenv -e .env -- release-it --dry-run",
+    "publish:ci": "dotenv -e .env -- release-it --ci"
   },
   "keywords": [
     "eslint",
@@ -33,10 +35,11 @@
   },
   "homepage": "https://github.com/tupe12334/eslint-plugin-error#readme",
   "devDependencies": {
+    "@release-it/conventional-changelog": "^10.0.1",
     "@vitest/coverage-v8": "^1.6.0",
     "dotenv-cli": "^10.0.0",
     "eslint": "^9.0.0",
-    "release-it": "^17.2.1",
+    "release-it": "^19.0.5",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

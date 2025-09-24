@@ -11,6 +11,12 @@
     "token": "${NPM_TOKEN}"
   },
   "hooks": {
-    "before:init": ["pnpm test", "pnpm lint"]
+    "before:init": ["pnpm validate"]
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
   }
 }
