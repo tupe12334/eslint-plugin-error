@@ -14,9 +14,6 @@ const plugin = {
   },
   configs: {
     recommended: {
-      plugins: {
-        error: plugin,
-      },
       rules: {
         'error/no-generic-error': 'error',
         'error/require-custom-error': 'error',
@@ -24,9 +21,6 @@ const plugin = {
       },
     },
     strict: {
-      plugins: {
-        error: plugin,
-      },
       rules: {
         'error/no-generic-error': 'error',
         'error/require-custom-error': 'error',
