@@ -1,0 +1,46 @@
+{
+  "name": "eslint-plugin-error",
+  "version": "1.0.0",
+  "description": "ESLint plugin with rules for JavaScript and TypeScript error handling",
+  "type": "module",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "eslint src --ext .js --fix",
+    "release": "release-it"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "error-handling",
+    "typescript",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tupe12334/eslint-plugin-error.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tupe12334/eslint-plugin-error/issues"
+  },
+  "homepage": "https://github.com/tupe12334/eslint-plugin-error#readme",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^9.0.0",
+    "release-it": "^17.2.1",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
