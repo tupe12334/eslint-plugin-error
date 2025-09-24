@@ -7,7 +7,8 @@
     "release": true
   },
   "npm": {
-    "publish": true
+    "publish": true,
+    "token": "${NPM_TOKEN}"
   },
   "hooks": {
     "before:init": ["pnpm test", "pnpm lint"]
