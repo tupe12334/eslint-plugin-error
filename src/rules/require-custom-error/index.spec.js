@@ -33,6 +33,19 @@ describe('require-custom-error', () => {
         }
       }
       throw new OptionalMessageError();`,
+      // Test: Imported errors can have any name (named import)
+      `import { AuthFailure } from 'auth-lib';
+      throw new AuthFailure("message");`,
+      // Test: Imported errors can have any name (default import)
+      `import NetworkTimeout from 'network-lib';
+      throw new NetworkTimeout("message");`,
+      // Test: Imported errors can have any name (namespace import)
+      `import * as Auth from 'auth-lib';
+      throw new Auth.Failure("message");`,
+      // Test: Multiple imports with various names
+      `import { Custom, ValidationFailure } from 'errors';
+      throw new Custom("message");
+      throw new ValidationFailure("message");`,
       {
         code: 'throw new Error("message")',
         options: [{ allowedBaseErrors: [] }],
@@ -85,6 +98,16 @@ describe('require-custom-error', () => {
         errors: [{
           messageId: 'extendError',
         }],
+      },
+      // Test: Locally declared errors still need Error suffix even when imports exist
+      {
+        code: `import { AuthFailure } from 'auth-lib';
+        throw new LocalCustom("message");`,
+        errors: [{
+          messageId: 'requireErrorSuffix',
+        }],
+        output: `import { AuthFailure } from 'auth-lib';
+        throw new LocalCustomError("message");`,
       },
     ],
   });

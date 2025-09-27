@@ -40,33 +40,25 @@ const requireCustomError = createRule(
     const allowedBaseErrors = options.allowedBaseErrors || ['Error'];
     const requireErrorSuffix = options.requireErrorSuffix !== false;
 
+    const importedIdentifiers = new Set();
+    const declaredClasses = new Set();
+
     return {
-      ThrowStatement(node) {
-        const argument = node.argument;
-
-        if (argument && argument.type === 'NewExpression') {
-          const callee = argument.callee;
-
-          if (callee.type === 'Identifier') {
-            if (allowedBaseErrors.includes(callee.name)) {
-              context.report({
-                node: argument,
-                messageId: 'requireCustomError',
-              });
-            } else if (requireErrorSuffix && !callee.name.endsWith('Error')) {
-              context.report({
-                node: callee,
-                messageId: 'requireErrorSuffix',
-                fix(fixer) {
-                  return fixer.replaceText(callee, `${callee.name}Error`);
-                },
-              });
-            }
+      ImportDeclaration(node) {
+        node.specifiers.forEach(spec => {
+          if (spec.type === 'ImportSpecifier' || spec.type === 'ImportDefaultSpecifier') {
+            importedIdentifiers.add(spec.local.name);
+          } else if (spec.type === 'ImportNamespaceSpecifier') {
+            importedIdentifiers.add(spec.local.name);
           }
-        }
+        });
       },
 
       ClassDeclaration(node) {
+        if (node.id) {
+          declaredClasses.add(node.id.name);
+        }
+
         if (!node.id || !node.id.name.endsWith('Error')) {
           return;
         }
@@ -82,6 +74,31 @@ const requireCustomError = createRule(
             node: node.id,
             messageId: 'extendError',
           });
+        }
+      },
+
+      ThrowStatement(node) {
+        const argument = node.argument;
+
+        if (argument && argument.type === 'NewExpression') {
+          const callee = argument.callee;
+
+          if (callee.type === 'Identifier') {
+            if (allowedBaseErrors.includes(callee.name)) {
+              context.report({
+                node: argument,
+                messageId: 'requireCustomError',
+              });
+            } else if (requireErrorSuffix && !callee.name.endsWith('Error') && !importedIdentifiers.has(callee.name)) {
+              context.report({
+                node: callee,
+                messageId: 'requireErrorSuffix',
+                fix(fixer) {
+                  return fixer.replaceText(callee, `${callee.name}Error`);
+                },
+              });
+            }
+          }
         }
       },
     };
