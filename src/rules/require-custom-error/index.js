@@ -11,7 +11,6 @@ const requireCustomError = createRule(
       recommended: false,
       url: 'https://github.com/tupe12334/eslint-plugin-error/blob/main/docs/rules/require-custom-error.md'
     },
-    fixable: 'code',
     schema: [
       {
         type: 'object',
@@ -93,9 +92,6 @@ const requireCustomError = createRule(
               context.report({
                 node: callee,
                 messageId: 'requireErrorSuffix',
-                fix(fixer) {
-                  return fixer.replaceText(callee, `${callee.name}Error`);
-                },
               });
             }
           }
