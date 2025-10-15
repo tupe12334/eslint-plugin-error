@@ -1,6 +1,7 @@
 import { noGenericError } from './rules/no-generic-error/index.js';
 import { requireCustomError } from './rules/require-custom-error/index.js';
 import { noThrowLiteral } from './rules/no-throw-literal/index.js';
+import { requireHardcodedErrorMessage } from './rules/require-hardcoded-error-message/index.js';
 
 const plugin = {
   meta: {
@@ -11,6 +12,7 @@ const plugin = {
     'no-generic-error': noGenericError,
     'require-custom-error': requireCustomError,
     'no-throw-literal': noThrowLiteral,
+    'require-hardcoded-error-message': requireHardcodedErrorMessage,
   },
   configs: {
     recommended: {

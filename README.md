@@ -30,6 +30,7 @@ export default [
       'error/no-generic-error': 'error',
       'error/require-custom-error': 'error',
       'error/no-throw-literal': 'error',
+      'error/require-hardcoded-error-message': 'warn',
     },
   },
   // Or use the recommended configuration
@@ -47,7 +48,8 @@ Add `error` to your ESLint plugins list and configure the rules:
   "rules": {
     "error/no-generic-error": "error",
     "error/require-custom-error": "error",
-    "error/no-throw-literal": "error"
+    "error/no-throw-literal": "error",
+    "error/require-hardcoded-error-message": "warn"
   }
 }
 ```
@@ -115,6 +117,29 @@ throw new CustomError('Not found');
 throw errorInstance;
 ```
 
+### `error/require-hardcoded-error-message`
+
+Requires repeated error messages to be hardcoded in the error class constructor instead of being passed at each throw site.
+
+❌ Bad:
+```javascript
+throw new ValidationError('Name is required');
+// ... elsewhere in the code
+throw new ValidationError('Name is required'); // repeated message
+```
+
+✅ Good:
+```javascript
+class NameRequiredError extends Error {
+  constructor() {
+    super('Name is required');
+  }
+}
+throw new NameRequiredError();
+// ... elsewhere in the code
+throw new NameRequiredError(); // no repeated message
+```
+
 ## Configuration Options
 
 ### `error/no-generic-error`
@@ -145,6 +170,18 @@ throw errorInstance;
   "error/no-throw-literal": ["error", {
     "allowThrowingObjects": false, // Allow throwing plain objects
     "allowThrowingUnknown": false // Allow throwing unknown variables
+  }]
+}
+```
+
+### `error/require-hardcoded-error-message`
+
+```json
+{
+  "error/require-hardcoded-error-message": ["warn", {
+    "threshold": 2, // Minimum occurrences to trigger (default: 2)
+    "ignoreErrorClasses": [], // Error classes to skip checking
+    "checkImportedErrors": true // Check imported error classes (default: true)
   }]
 }
 ```
