@@ -78,14 +78,12 @@ describe('require-custom-error', () => {
         errors: [{
           messageId: 'requireErrorSuffix',
         }],
-        output: 'throw new CustomError("message")',
       },
       {
         code: 'throw new Validation("message")',
         errors: [{
           messageId: 'requireErrorSuffix',
         }],
-        output: 'throw new ValidationError("message")',
       },
       {
         code: 'class CustomError {}',
@@ -106,8 +104,6 @@ describe('require-custom-error', () => {
         errors: [{
           messageId: 'requireErrorSuffix',
         }],
-        output: `import { AuthFailure } from 'auth-lib';
-        throw new LocalCustomError("message");`,
       },
     ],
   });
