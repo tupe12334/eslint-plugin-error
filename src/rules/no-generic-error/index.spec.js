@@ -29,7 +29,6 @@ describe('no-generic-error', () => {
           messageId: 'noGenericErrorWithSuggestion',
           data: { suggestion: 'CustomError' },
         }],
-        output: 'throw new CustomError("message")',
       },
       {
         code: 'throw new Error("validation failed")',
@@ -37,7 +36,6 @@ describe('no-generic-error', () => {
           messageId: 'noGenericErrorWithSuggestion',
           data: { suggestion: 'ValidationError' },
         }],
-        output: 'throw new ValidationError("validation failed")',
       },
       {
         code: 'throw new Error("user not found")',
@@ -45,7 +43,6 @@ describe('no-generic-error', () => {
           messageId: 'noGenericErrorWithSuggestion',
           data: { suggestion: 'NotFoundError' },
         }],
-        output: 'throw new NotFoundError("user not found")',
       },
       {
         code: 'throw new Error("unauthorized access")',
@@ -53,7 +50,6 @@ describe('no-generic-error', () => {
           messageId: 'noGenericErrorWithSuggestion',
           data: { suggestion: 'UnauthorizedError' },
         }],
-        output: 'throw new UnauthorizedError("unauthorized access")',
       },
       {
         code: 'throw new Error("connection timeout")',
@@ -61,7 +57,6 @@ describe('no-generic-error', () => {
           messageId: 'noGenericErrorWithSuggestion',
           data: { suggestion: 'TimeoutError' },
         }],
-        output: 'throw new TimeoutError("connection timeout")',
       },
       {
         code: 'throw new Error("network error")',
@@ -69,7 +64,6 @@ describe('no-generic-error', () => {
           messageId: 'noGenericErrorWithSuggestion',
           data: { suggestion: 'NetworkError' },
         }],
-        output: 'throw new NetworkError("network error")',
       },
       {
         code: 'throw new Error()',

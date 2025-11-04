@@ -37,7 +37,6 @@ const noGenericError = createRule(
       recommended: false,
       url: 'https://github.com/tupe12334/eslint-plugin-error/blob/main/docs/rules/no-generic-error.md'
     },
-    fixable: 'code',
     schema: [
       {
         type: 'object',
@@ -78,12 +77,6 @@ const noGenericError = createRule(
               node: argument,
               messageId: suggestion ? 'noGenericErrorWithSuggestion' : 'noGenericError',
               data: { suggestion },
-              fix(fixer) {
-                if (suggestion) {
-                  return fixer.replaceText(callee, suggestion);
-                }
-                return null;
-              },
             });
           }
         }
