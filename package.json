@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-error",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "ESLint plugin with rules for JavaScript and TypeScript error handling",
   "type": "module",
   "main": "src/index.js",

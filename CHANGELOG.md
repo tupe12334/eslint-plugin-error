@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/tupe12334/eslint-plugin-error/compare/v1.2.0...v1.2.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* remove auto-fix functionality from no-generic-error rule ([33d15be](https://github.com/tupe12334/eslint-plugin-error/commit/33d15beec43236af6732248ab79c5f9f0244e6dd))
+
 # [1.2.0](https://github.com/tupe12334/eslint-plugin-error/compare/v1.1.3...v1.2.0) (2025-10-15)
 
 
