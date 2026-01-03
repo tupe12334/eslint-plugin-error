@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.2](https://github.com/tupe12334/eslint-plugin-error/compare/v1.2.1...v1.2.2) (2026-01-03)
+
+
+### Bug Fixes
+
+* **ci:** add .npmrc for npm authentication ([07c4b5c](https://github.com/tupe12334/eslint-plugin-error/commit/07c4b5c995e03b042a45366bab0d21fcaefb4d2f))
+* **ci:** add packageManager field for pnpm setup ([8ab38ca](https://github.com/tupe12334/eslint-plugin-error/commit/8ab38ca4e8c6b3126fbd48bd89a092451d766f23))
+
+
+### Features
+
+* add no-literal-error-message rule and CI/CD workflows ([779d0ad](https://github.com/tupe12334/eslint-plugin-error/commit/779d0adee8822d57f5ffa43608b8b3b5a6cebe2b))
+
 ## [1.2.1](https://github.com/tupe12334/eslint-plugin-error/compare/v1.2.0...v1.2.1) (2025-11-04)
 
 
