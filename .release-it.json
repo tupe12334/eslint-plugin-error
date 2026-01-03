@@ -1,14 +1,16 @@
 {
   "git": {
+    "commit": true,
     "commitMessage": "chore: release v${version}",
-    "tagName": "v${version}"
+    "tag": true,
+    "tagName": "v${version}",
+    "push": true
   },
   "github": {
     "release": false
   },
   "npm": {
-    "publish": true,
-    "token": "${NPM_TOKEN}"
+    "publish": true
   },
   "hooks": {
     "before:init": ["pnpm validate"]
