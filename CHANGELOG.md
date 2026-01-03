@@ -1,5 +1,7 @@
 # Changelog
 
+# [1.3.0](https://github.com/tupe12334/eslint-plugin-error/compare/v1.2.2...v1.3.0) (2026-01-03)
+
 ## [1.2.2](https://github.com/tupe12334/eslint-plugin-error/compare/v1.2.1...v1.2.2) (2026-01-03)
 
 
