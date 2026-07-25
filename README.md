@@ -187,6 +187,10 @@ throw new NameRequiredError(); // no repeated message
 ```
 
 
+## See also
+
+- [moadim](https://moadim.io/) — loop engineering: build, schedule & run agent loops.
+
 ## License
 
 MIT
