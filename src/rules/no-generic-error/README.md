@@ -41,9 +41,9 @@ Examples of **correct** code for this rule with the `{ "allowedErrorNames": ["Er
 throw new Error('This is allowed');
 ```
 
-## Auto-fixing
+## Suggested Error Types
 
-This rule provides automatic fixes that suggest appropriate error types based on the error message:
+This rule does not auto-fix violations, but its error message suggests an appropriate custom error type based on the error message content:
 
 - Messages containing "validation" or "invalid" → `ValidationError`
 - Messages containing "not found" or "missing" → `NotFoundError`

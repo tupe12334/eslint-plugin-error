@@ -30,6 +30,7 @@ export default [
       'error/no-generic-error': 'error',
       'error/require-custom-error': 'error',
       'error/no-throw-literal': 'error',
+      'error/no-literal-error-message': 'error',
       'error/require-hardcoded-error-message': 'warn',
     },
   },
@@ -49,6 +50,7 @@ Add `error` to your ESLint plugins list and configure the rules:
     "error/no-generic-error": "error",
     "error/require-custom-error": "error",
     "error/no-throw-literal": "error",
+    "error/no-literal-error-message": "error",
     "error/require-hardcoded-error-message": "warn"
   }
 }
@@ -117,6 +119,33 @@ throw new CustomError('Not found');
 throw errorInstance;
 ```
 
+### `error/no-literal-error-message`
+
+Disallows creating errors with literal string (or template literal) messages; error messages should be hardcoded inside a dedicated custom error class instead.
+
+❌ Bad:
+```javascript
+throw new Error('User not found');
+throw new ValidationError('Invalid input');
+throw Error('Something went wrong'); // without 'new'
+```
+
+✅ Good:
+```javascript
+class UserNotFoundError extends Error {
+  constructor() {
+    super('User not found');
+    this.name = 'UserNotFoundError';
+  }
+}
+throw new UserNotFoundError();
+
+// Variable messages are still allowed
+throw new Error(errorMessage);
+```
+
+See [src/rules/no-literal-error-message/README.md](src/rules/no-literal-error-message/README.md) for the full rule documentation.
+
 ### `error/require-hardcoded-error-message`
 
 Requires repeated error messages to be hardcoded in the error class constructor instead of being passed at each throw site.
@@ -170,6 +199,18 @@ throw new NameRequiredError(); // no repeated message
   "error/no-throw-literal": ["error", {
     "allowThrowingObjects": false, // Allow throwing plain objects
     "allowThrowingUnknown": false // Allow throwing unknown variables
+  }]
+}
+```
+
+### `error/no-literal-error-message`
+
+```json
+{
+  "error/no-literal-error-message": ["error", {
+    "allowedErrorClasses": [], // Error class names allowed to have literal messages
+    "allowedPatterns": [], // Regex patterns for error class names that are allowed
+    "checkTemplateLiterals": true // Whether to also flag template literals (default: true)
   }]
 }
 ```
