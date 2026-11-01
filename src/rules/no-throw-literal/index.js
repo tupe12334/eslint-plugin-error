@@ -76,7 +76,7 @@ const noThrowLiteral = createRule(
             node: argument,
             messageId: 'literal',
             fix(fixer) {
-              const sourceCode = context.getSourceCode();
+              const sourceCode = (context.sourceCode || context.getSourceCode());
               const text = sourceCode.getText(argument);
               return fixer.replaceText(argument, `new Error(${text})`);
             },
