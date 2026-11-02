@@ -23,9 +23,9 @@ const guard = (rule) => ({
   create: (context) =>
     rule.create(
       new Proxy(context, {
-        get(target, prop) {
-          if (REMOVED.has(prop)) throw new TypeError(`context.${String(prop)} was removed in ESLint 10`);
-          return Reflect.get(target, prop);
+        get(target, property) {
+          if (REMOVED.has(property)) throw new TypeError(`context.${String(property)} was removed in ESLint 10`);
+          return Reflect.get(target, property);
         },
       }),
     ),
