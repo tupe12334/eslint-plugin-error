@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/tupe12334/linecheck/main/schema/linecheck.schema.json
+rules:
+  - pattern: "**/*.spec.js"
+    warn: 300
+    error: 500
+    error_message: "Spec too large; split cases into separate files"
+  - pattern: "**/*.js"
+    warn: 200
+    warn_message: "Getting long; consider extracting helpers"
+    error: 400
+    error_message: "Rule too large to review; split it now"
+  - pattern: "**/*.md"
+    warn: 400
+    error: 800
+exclude:
+  - "**/node_modules/**"
+  - "pnpm-lock.yaml"
+  - "CHANGELOG.md"
