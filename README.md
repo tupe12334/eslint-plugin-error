@@ -116,7 +116,6 @@ throw undefined;
 ```javascript
 throw new Error('error message');
 throw new CustomError('Not found');
-throw errorInstance;
 ```
 
 ### `error/no-literal-error-message`
