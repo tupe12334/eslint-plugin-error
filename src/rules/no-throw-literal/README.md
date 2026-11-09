@@ -24,7 +24,6 @@ throw -1;
 throw new Error('error message');
 throw new CustomError('Something went wrong');
 throw new ValidationError('Invalid input');
-throw errorVariable; // assuming errorVariable is an Error instance
 ```
 
 ## Options

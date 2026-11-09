@@ -11,7 +11,6 @@ This rule enforces the use of custom error classes instead of generic error cons
 ```js
 // Throwing generic errors
 throw new Error('Something went wrong');
-throw new TypeError('Invalid type');
 
 // Custom error classes without Error suffix
 throw new Custom('message');
@@ -78,10 +77,7 @@ class Custom extends Error {} // Suffix requirement disabled
 
 ## Auto-fixing
 
-This rule provides automatic fixes for:
-
-- Adding "Error" suffix to custom error class names when `requireErrorSuffix` is enabled
-- Converting `throw new Custom('message')` to `throw new CustomError('message')`
+This rule does not provide automatic fixes. Rename classes and throw sites by hand.
 
 ## When Not To Use It
 
